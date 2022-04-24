@@ -124,6 +124,8 @@ class WelcomeExitImage(commands.Cog):
         #Mando il messaggio personalizzato nel canale
         await channel.send(text_message)
 
+        print("Image and message sent!")
+
         if os.path.exists(image_path):
             os.remove(image_path)
         else:
