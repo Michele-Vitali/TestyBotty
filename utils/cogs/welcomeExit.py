@@ -109,7 +109,7 @@ class WelcomeExitImage(commands.Cog):
             #Ottengo il font con la grandezza deisderata
             font = ImageFont.truetype(urlopen(truetype_url), size = font_size)
             #Ottengo la larghezza e altezza in pixel del testo (linea)
-            #width, height = font.getsize(line)
+            width, height = font.getsize(line)
             #Scrivo il testo sulla foto in modo che sia centrato, con il font scelto e di colore nero
             draw.text(((W - width) / 2, y_text), line, font = font, fill = (0, 0, 0))
             #Abbasso la prossima scritta nella foto
@@ -123,8 +123,6 @@ class WelcomeExitImage(commands.Cog):
         await channel.send(file = discord.File(f"{image_path}"))
         #Mando il messaggio personalizzato nel canale
         await channel.send(text_message)
-
-        print("Image and message sent!")
 
         if os.path.exists(image_path):
             os.remove(image_path)
