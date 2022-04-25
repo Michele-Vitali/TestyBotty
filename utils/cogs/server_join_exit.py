@@ -16,7 +16,13 @@ class ServerJoinExit(commands.Cog):
       "ID": guild.id,
       "name": guild.name,
       "welcome_channel": "",
+      "welcome_image": "",
+      "welcome_image_message": "",
+      "welcome_text_message": "",
       "goodbye_channel": "",
+      "goodbye_image": "",
+      "goodbye_image_message": "",
+      "goodbye_text_message": "",
       "setup-channel": "",
       "ban_words_list": []
     }
