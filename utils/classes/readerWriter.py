@@ -1,9 +1,4 @@
 import json
-import sys
-sys.path.append('./guild.py')
-import guild as g
-
-import os
 
 class ReaderWriter:
   def __init__(self, filePath):
