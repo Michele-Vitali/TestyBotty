@@ -8,7 +8,7 @@ from io import BytesIO
 
 import settings
 
-class WelcomeExitImage(commands.Cog):
+class welcome_exit(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -123,9 +123,9 @@ class WelcomeExitImage(commands.Cog):
         #Creo l'oggetto per poter disegnare sull'immagine banner
         draw = ImageDraw.Draw(banner)
         #Inizializzo l'altezza dove si inizierà a scrivere sull'immagine
-        y_text = 500
+        y_text = avatar_size + 100
         #Setto la grandezza del font con cui scrivo
-        font_size = 110
+        font_size = H / 8
 
         for line in lines:
             #Ottengo il font con la grandezza deisderata
@@ -160,4 +160,4 @@ class WelcomeExitImage(commands.Cog):
       return message
 
 def setup(bot):
-    bot.add_cog(WelcomeExitImage(bot))
+    bot.add_cog(welcome_exit(bot))

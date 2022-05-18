@@ -1,6 +1,6 @@
 import sys
 sys.path.append('./utils/classes')
-import readerWriter as rewr
+import reader_writer as rewr
 
 def init():
   global rw

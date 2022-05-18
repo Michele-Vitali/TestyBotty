@@ -1,7 +1,7 @@
 from discord.ext import commands
 import settings
 
-class ServerJoinExit(commands.Cog):
+class server_join_exit(commands.Cog):
 
   def __init__(self, bot):
     self.bot = bot
@@ -11,7 +11,7 @@ class ServerJoinExit(commands.Cog):
   async def on_guild_join(self, guild):
     #Leggo il file
     servers = settings.servers
-    #Creo un nuovo dictionry del server dove sono appena joinato
+    #Creo un nuovo dictionary del server dove sono appena joinato
     obj = {
       "ID": guild.id,
       "name": guild.name,
@@ -24,7 +24,10 @@ class ServerJoinExit(commands.Cog):
       "goodbye_image_message": "",
       "goodbye_text_message": "",
       "setup-channel": "",
-      "ban_words_list": []
+      "ban_words_list": [],
+      "join_to_create_vc": "",
+      "vc_admin": "",
+      "vc_category": ""
     }
     #Aggiungo il nuovo server alla lista dei servers
     servers.append(obj)
@@ -44,4 +47,4 @@ class ServerJoinExit(commands.Cog):
     print(f"I got kicked from {guild.name} server, uff!")
 
 def setup(bot):
-  bot.add_cog(ServerJoinExit(bot))
+  bot.add_cog(server_join_exit(bot))
