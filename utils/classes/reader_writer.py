@@ -24,8 +24,8 @@ class ReaderWriter:
     #Controllo se la lista è vuota
     if servers:
       try:
-        #Provo ad aprire il file in modalità append
-        with open(self.file, "a") as f:
+        #Provo ad aprire il file in modalità write
+        with open(self.file, "w") as f:
           json.dump(servers, f, ensure_ascii = True, indent = 4)
       except:
         print("Couldn't open the file")

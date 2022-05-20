@@ -38,7 +38,7 @@ class welcome_exit(commands.Cog):
               if guild['welcome_image_message']:
                   image_message = guild['welcome_image_message']
               #Salvo il percorso file per dove salvare l'eventuale foto modificata del membro
-              image_path = f'./utils/images/TheRealScara/welcome/welcome_{member.name}.png'
+              image_path = f'./utils/images/{member.guild.id}/welcome_{member.name}.png'
 
               message = await self.custom_message(member, text_message)
               await self.custom_image(member, banner, image_message, image_path, channel, message)
@@ -66,15 +66,15 @@ class welcome_exit(commands.Cog):
         if guild['goodbye_channel']:
           if guild['goodbye_image']:
               #Faccio una richiesta http e ottengo la response
-              response = requests.get(guild['goodbye_image'])
+              #response = requests.get(guild['goodbye_image'])
               #Apro la response come dati binari e poi come immagine convertita infine in formato RGBA
-              banner = Image.open(BytesIO(response.content)).convert('RGBA')
+              banner = Image.open(guild['goodbye_image']).convert('RGBA')
               #Controllo se il server ha un goodbye message settato
               if guild['goodbye_image_message']:
                   image_message = guild['goodbye_image_message']
   
               #Salvo il percorso file per dove salvare l'eventuale foto modificata del membro
-              image_path = './utils/images/goodbye/' / f'goodbye_{member.name}.png'
+              image_path = f'./utils/images/{member.guild.id}/goodbye{member.name}.png'
 
               message = await self.custom_message(member, text_message)
               await self.custom_image(member, banner, image_message, image_path, channel, message)
@@ -117,6 +117,7 @@ class welcome_exit(commands.Cog):
         #Metto lo strato alfa di overlayt sopra quello di banner
         banner.alpha_composite(overlay)
         #Divido il messaggio in una lista in base alle linee
+        image_message = image_message.format(member = member.name)
         lines = image_message.splitlines()
         #Salvo l'url della repo su github del font utilizzato per scrivere nella foto
         truetype_url = 'https://github.com/googlefonts/roboto/blob/main/src/hinted/Roboto-Black.ttf?raw=true'
@@ -125,15 +126,15 @@ class welcome_exit(commands.Cog):
         #Inizializzo l'altezza dove si inizierà a scrivere sull'immagine
         y_text = avatar_size + 100
         #Setto la grandezza del font con cui scrivo
-        font_size = H / 8
+        font_size = int(H / 8)
 
         for line in lines:
             #Ottengo il font con la grandezza deisderata
             font = ImageFont.truetype(urlopen(truetype_url), size = font_size)
             #Ottengo la larghezza e altezza in pixel del testo (linea)
             width, height = font.getsize(line)
-            #Scrivo il testo sulla foto in modo che sia centrato, con il font scelto e di colore nero
-            draw.text(((W - width) / 2, y_text), line, font = font, fill = (0, 0, 0))
+            #Scrivo il testo sulla foto in modo che sia centrato, con il font scelto e di colore bianco
+            draw.text(((W - width) / 2, y_text), line, font = font, fill = (255, 255, 255))
             #Abbasso la prossima scritta nella foto
             y_text += 100
             #Diminuisco la grandezza del font

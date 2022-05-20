@@ -1,5 +1,6 @@
 from discord.ext import commands
 import settings
+import os
 
 class server_join_exit(commands.Cog):
 
@@ -33,6 +34,10 @@ class server_join_exit(commands.Cog):
     servers.append(obj)
     #Salvo nel file la lista dei server aggiornata
     settings.rw.write(servers)
+    #Creo una nuova cartella con il nome che è l'id del nuovo server
+    path = f"../../images/{guild.id}"
+    if not os.path.exists(path):
+      os.makedirs(path)
     print(f"I joined {guild.name} server, yay!")
 
   @commands.Cog.listener()
