@@ -1,55 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'Open Sans', sans-serif;
     margin: 0px;
     padding: 0px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
+html, body{
+  height: 100%;
 }
 
 body{
   background-image: url('../images/background.svg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 150%;
+  background-position: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-}
-
-.navbar {
-  width: 50vw;
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
+  color: white;
 }
 
-.logo{
-  justify-self: flex-start;
+.navbar{
+  width: 90vw;
+  padding: 1em  0.5em;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .links-wrapper{
-  justify-self: flex-end;
+  margin-left: auto;
 }
 
-.navbar a:not(.logo) {
-    color: white;
-    position: relative;
-    padding: 0px 2em;
-    text-decoration: none;
+.links-wrapper a{
+  position: relative;
+  top: 20%;
+  padding: 1em 1em 0.5em 1em;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
-.navbar a:not(.logo)::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 2px;
-    bottom: -2px;
-    left: 0px;
-    background-color: rgb(255, 255, 255);
-    transform: scaleX(0);
-    transform-origin: left top;
-    transition: transform 0.2s ease 0s;
+.navbar a:not(.logo, .login)::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgb(255, 255, 255);
+  transform: scaleX(0);
+  transform-origin: left top;
+  transition: transform 0.2s ease 0s;
 }
 
-.navbar a:not(.logo):hover:before,
-.navbar a:not(.logo):hover:before{
+.navbar a:hover:before,
+.navbar a:hover:before{
   transform: scaleX(1);
+}
+
+.logo img{
+  width: 50%;
+  aspect-ratio: 1;
+}
+
+.premium{
+  color: gold !important;
+}
+
+.login{
+  padding: 0.5em 1em 0.5em 1em !important;
+  background-color: #3994FF;
+  border-radius: 25px;
+  transition: 300ms;
+}
+
+.login:hover{
+  background-color: #006CEC;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+}
+
+.card-wrapper{
+  color: #F2F4FB;
+  width: 30vw;
+  margin: 5% 0 0 0;
+}
+
+.title{
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.description{
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5em;
+  margin: 5% 0 0 0;
+  color: #CACED1;
+}
+
+.card-image{
+  color: #CACED1;
+  width: 40vw;
+  text-align: center;
+}
+
+.card-image img{
+  width: 100%;
+}
+
+.buttons-wrapper{
+  margin: 4em 0 0 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons-wrapper > *{
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  padding: 1em 2em;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: 300ms;
+}
+
+.add{
+  background-color: #3994FF;
+}
+
+.add:hover{
+  background-color: #006CEC;
+}
+
+.discover{
+  background-color: #353535;
+}
+
+.discover:hover{
+  background-color: #505050;
+}
+
+.divider{
+  margin: 10% 0 0 0;
+  background-color: #303540;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logos-wrapper{
+  height: 20vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.divider p{
+  font-size: 2em;
+}
+
+.logos-wrapper img{
+  height: 10vh;
+  aspect-ratio: 1;
+  padding: 0.5em;
+  border-radius: 25px;
 }

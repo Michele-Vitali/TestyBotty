@@ -3,23 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
-    <link rel="shortcut icon" type="image/png" href="static/images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="static/css/index.css"
+    <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="https://kit.fontawesome.com/c58b9694dc.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <section class="navbar" id="navbar">
-      <a class="logo" id="logo" href="/">
-        <img src="static/images/favicon.png" alt="Bot logo">
+      <a href="/" class="logo" id="logo">
+        <img src="../static/images/favicon.png" alt="Bot logo">
       </a>
-      <div class="links-wrapper" id="links-wrapper"
-        <a href="#">Home</a>
-        <a href="#">Ciao</a>
-        <a href="#">MMM</a>
+      <div class="links-wrapper" id="links-wrapper">
+        <a href="#">Docs</a>
+        <a href="#">Support</a>
+        <a href="#">Contact</a>
+        <a href="#" class="premium" id="premium"><i class="fa-solid fa-crown"></i>&nbsp;Premium</a>
+        <a href="#" class="login" id="login">Login</a>
       </div>
     </section>
     <section class="main" id="main">
-      <div class="" id="">
-        ciao
+      <div class="card-wrapper" id="card-wrapper">
+        <p class="title" id="title">Create the best Discord server!</p>
+        <p class="description" id="description">Configure moderation, leveling, twitch notification and much more with a single message!</p>
+        <div class="buttons-wrapper" id="buttons-wrapper">
+          <a href="#" class="add" id="add">Add to discord</a>
+          <a href="#" class="discover" id="discover">Discover functionalities</a>
+        </div>
+      </div>
+      <div class="card-image" id="card-image">
+        <img src="../static/images/test.jpg" alt="test">
+        <p class="image-description" id="image-description">TestyBotty was brought to you with much love from TheRealScara</p>
+      </div>
+    </section>
+    <section class="divider" id="divider">
+      {% set servers_num = bot.guilds | length %}
+      {% if servers_num == 0 %}
+        <p class="text" id="text">Currently used by {{ servers_num }} servers</p>
+      {% elif servers_num == 1 %}
+        <p class="text" id="text">Currently used by {{ servers_num }} server</p>
+      {% else %}
+        <p class="text" id="text">Currently used by {{ servers_num }} servers</p>
+      {% endif %}
+      <div class="logos-wrapper" id="logos-wrapper">
+        <img src="../static/images/minecraft.png" alt="Minecraft" class="minecraft" id="minecraft">
+        <img src="../static/images/roblox.png" alt="Roblox" class="roblox" id="roblox">
+        <img src="../static/images/pubg.png" alt="PUBG" class="pubg" id="pubg">
+        <img src="../static/images/mrbeast.png" alt="MrBeast" class="mrbeast" id="mrbeast">
+        <img src="../static/images/jelly.png" alt="Jelly" class="jelly" id="jelly">
+        <img src="../static/images/kobe.png" alt="Kobe" class="kobe" id="kobe">
+        <img src="../static/images/s.png" alt="S" class="s" id="s">
+        <img src="../static/images/p.png" alt="P" class="p" id="p">
       </div>
     </section>
   </body>

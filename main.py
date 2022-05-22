@@ -32,5 +32,5 @@ async def on_ready():
 
 my_secret = os.environ['TOKEN']
 
-keep_alive()
+keep_alive(bot)
 bot.run(my_secret)
